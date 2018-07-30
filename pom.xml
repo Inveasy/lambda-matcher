@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.inveasy</groupId>
+    <artifactId>lambda-matcher</artifactId>
+    <name>Lambda matcher</name>
+    <description>
+        Matcher pattern implementation with java 8 lambdas, for Inveasy framework
+    </description>
+
+    <version>1.0.0</version>
+
+    <inceptionYear>2018</inceptionYear>
+
+    <developers>
+        <developer>
+            <name>Guillaume Gravetot</name>
+            <email>ggravetot@gmail.com</email>
+            <roles>
+                <role>Lead developer</role>
+            </roles>
+        </developer>
+    </developers>
+
+	<licenses>
+		<license>
+			<name>Apache licence 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
+		</license>
+	</licenses>
+
+	<scm>
+		<url>https://github.com/Inveasy/lambda-matcher</url>
+	</scm>
+
+	<issueManagement>
+		<system>Github</system>
+		<url>https://github.com/Inveasy/lambda-matcher/issues</url>
+	</issueManagement>
+
+	<properties>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.projectVersion>${project.version}</sonar.projectVersion>
+		<sonar.java.sources>8</sonar.java.sources>
+		<sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
+
+		<!-- Code coverage properties -->
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
+		<jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
+		<sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>bintray-inveasy-maven</id>
+			<name>inveasy-maven</name>
+			<url>https://api.bintray.com/maven/inveasy/maven/lambda-matcher/;publish=1</url>
+		</repository>
+	</distributionManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
